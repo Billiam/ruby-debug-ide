@@ -73,13 +73,9 @@ options.gems_to_include.each do |gem_path|
   $LOAD_PATH.unshift(gem_path) unless $LOAD_PATH.include?(gem_path)
 end
 
-require 'ruby-debug-ide/greeter'
-Debugger::print_greeting_msg($stdout, nil, nil)
-
 require 'ruby-debug-ide/attach/util'
 require 'ruby-debug-ide/attach/native_debugger'
 require 'ruby-debug-ide/attach/process_thread'
-
 
 child_pids = get_child_pids(options.pid.to_s)
 attach_threads = Array.new
